@@ -1,0 +1,6 @@
+main: dev.worive.antidragoncry.AntiDragonCry
+version: 1.0.0
+name: AntiDragonCry
+author: Worive
+depend:
+  - ProtocolLib
