@@ -1,13 +1,10 @@
-main: dev.worive.payrespects.PayRespects
+main: dev.worive.antidragoncry.AntiDragonCry
 
-name: PayRespects
+name: AntiDragonCry
 version: @version@
 
 author: Worive
-description: Allow players to pay their respects
+description: Avoid EnderDragon's death sound.
 
-commands:
-  rip:
-    description: Pay respects.
-    aliases: [f, rip, respect]
-    usage: /f
+depend:
+  - ProtocolLib
