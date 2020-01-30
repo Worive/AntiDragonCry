@@ -5,10 +5,10 @@ import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.events.ConnectionSide;
 import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketEvent;
-
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class AntiDragonCry extends JavaPlugin {
+    @SuppressWarnings( "deprecation" )
     @Override
     public void onEnable() {
         ProtocolLibrary.getProtocolManager().addPacketListener(new PacketAdapter(this, ConnectionSide.SERVER_SIDE, Packets.Server.WORLD_EVENT) {
