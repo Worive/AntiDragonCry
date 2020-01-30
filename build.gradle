@@ -1,0 +1,42 @@
+apply plugin: 'java'
+
+group = "dev.worive"
+version = "1.0"
+
+repositories {
+    jcenter()
+    mavenCentral()
+    maven {
+        name = 'spigotmc-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/groups/public/'
+    }
+    maven { url = 'https://repo.spongepowered.org/maven' }
+    maven {
+        name = 'gradle-plugins'
+        url = 'https://plugins.gradle.org/m2'
+    }
+}
+
+configurations {
+    shadowCompile
+    compile.extendsFrom(shadowCompile)
+}
+
+dependencies {
+    compile fileTree(dir: 'libraries', include: '*.jar')
+    shadowCompile fileTree(dir: 'shadow-libraries', include: '*.jar')
+}
+
+import org.apache.tools.ant.filters.ReplaceTokens
+
+jar{
+    from{configurations.shadowCompile.collect{it.isDirectory()?it:zipTree(it)}}
+}
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        filter ReplaceTokens, tokens: [version: version]
+    }
+}
+
+compileJava.options.encoding = 'UTF-8'

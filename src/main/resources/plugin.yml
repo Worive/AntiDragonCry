@@ -1,0 +1,13 @@
+main: dev.worive.payrespects.PayRespects
+
+name: PayRespects
+version: @version@
+
+author: Worive
+description: Allow players to pay their respects
+
+commands:
+  rip:
+    description: Pay respects.
+    aliases: [f, rip, respect]
+    usage: /f
